@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  h1 {
+    @apply text-[58px];
+  }
+
+  h2 {
+    @apply text-[33px];
+  }
+
+  h3 {
+    @apply text-[24px];
+  }
+
+  .title {
+    @apply text-[18px];
+  }
+
+  .desk-body1 {
+    @apply text-[18px];
+  }
+
+  .mobile-body1 {
+    @apply text-[16px];
+  }
+
+  .body2 {
+    @apply text-[18px];
+  }
+}
+
+@theme {
+  --color-primary: #3fb195;
+  --color-primary-light: #3fb19533;
+  --color-primary-lighter: #3fb19514;
+  --color-text-primary: #222222;
+  --color-text-second: #00000099;
+  --color-text-third: #00000061;
+  --color-line: #00000014;
+  --color-bg-white: #ffffff;
+  --color-bg-gray: #fafafa;
+  --shadow-default: 0px 14px 24px rgba(0, 0, 0, 0.04);
+}
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.card {
+  @apply flex overflow-y-auto gap-5 w-full hide-scrollbar px-[16px] mb-10;
+}
+
+/* From Uiverse.io by alexruix */
+.loader {
+  --cell-size: 52px;
+  --cell-spacing: 1px;
+  --cells: 3;
+  --total-size: calc(
+    var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing))
+  );
+  display: flex;
+
+  flex-wrap: wrap;
+  width: var(--total-size);
+  height: var(--total-size);
+}
+
+.cell {
+  flex: 0 0 var(--cell-size);
+  margin: var(--cell-spacing);
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 4px;
+  animation: 1.5s ripple ease infinite;
+}
+
+.cell.d-1 {
+  animation-delay: 100ms;
+}
+
+.cell.d-2 {
+  animation-delay: 200ms;
+}
+
+.cell.d-3 {
+  animation-delay: 300ms;
+}
+
+.cell.d-4 {
+  animation-delay: 400ms;
+}
+
+.cell:nth-child(1) {
+  --cell-color: #00ff87;
+}
+
+.cell:nth-child(2) {
+  --cell-color: #0cfd95;
+}
+
+.cell:nth-child(3) {
+  --cell-color: #17fba2;
+}
+
+.cell:nth-child(4) {
+  --cell-color: #23f9b2;
+}
+
+.cell:nth-child(5) {
+  --cell-color: #30f7c3;
+}
+
+.cell:nth-child(6) {
+  --cell-color: #3df5d4;
+}
+
+.cell:nth-child(7) {
+  --cell-color: #45f4de;
+}
+
+.cell:nth-child(8) {
+  --cell-color: #53f1f0;
+}
+
+.cell:nth-child(9) {
+  --cell-color: #60efff;
+}
+
+/*Animation*/
+@keyframes ripple {
+  0% {
+    background-color: transparent;
+  }
+
+  30% {
+    background-color: var(--cell-color);
+  }
+
+  60% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
