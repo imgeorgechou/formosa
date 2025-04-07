@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Searchlocation } from "./Searchlocation";
 import { Search } from "./Search";
+import { Link } from "react-router-dom";
 export const Header = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
@@ -25,9 +26,9 @@ export const Header = () => {
             </div>
           </button>
         </div>
-        <div className="flex items-center justify-center ml-4">
+        <Link to="/" className="flex items-center justify-center ml-4">
           <img src="/logo.png" alt="" className="w-[99.15px] h-[40px]" />
-        </div>
+        </Link>
       </header>
       {/* 導航欄內容 */}
       <div

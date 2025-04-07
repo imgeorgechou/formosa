@@ -4,30 +4,10 @@ import { Hero } from "./components/Hero";
 import { List } from "./components/List";
 import { Foot } from "./components/Foot";
 import { Card } from "./components/Card";
-import jsSHA from "jssha";
 import axios from "axios";
 import { Spinner } from "./components/Spinner";
 import { Foodcard } from "./components/Foodcard";
-
-function getAuthorizationHeader() {
-  //  填入自己 ID、KEY 開始
-  let AppID = "411530011-08b1da20-352a-4588";
-  let AppKey = "894677d5-0ba6-4ee1-b72a-7eb306926c74";
-  //  填入自己 ID、KEY 結束
-  let GMTString = new Date().toGMTString();
-  // 需要先引入 jsSHA 套件
-  let ShaObj = new jsSHA("SHA-1", "TEXT");
-  ShaObj.setHMACKey(AppKey, "TEXT");
-  ShaObj.update("x-date: " + GMTString);
-  let HMAC = ShaObj.getHMAC("B64");
-  let Authorization =
-    'hmac username="' +
-    AppID +
-    '", algorithm="hmac-sha1", headers="x-date", signature="' +
-    HMAC +
-    '"';
-  return { Authorization: Authorization, "X-Date": GMTString };
-}
+import { getAuthorizationHeader } from "./utils/auth";
 
 function App() {
   const [travelData, setTravelData] = useState([]);
@@ -73,7 +53,9 @@ function App() {
         {isLoading ? (
           <Spinner />
         ) : error ? (
-          { error }
+          <div className="text-red-500 text-center mt-4">
+            {error.message || "載入數據時發生錯誤"}
+          </div>
         ) : (
           <>
             <List title={"景點推薦"} />
