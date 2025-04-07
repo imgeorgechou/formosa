@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Card } from "../components/Card";
 import { Spinner } from "../components/Spinner";
 import { getAuthorizationHeader } from "../utils/auth";
 import { Header } from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import { Foot } from "../components/Foot";
+import { Foodcard } from "../components/Foodcard";
 
-export const ScenicSpots = () => {
+export const Food = () => {
   const navigate = useNavigate();
   const [spots, setSpots] = useState([]);
   const [page, setPage] = useState(0);
@@ -25,7 +25,7 @@ export const ScenicSpots = () => {
       setError(null);
       const skip = page * itemsPerPage;
       const response = await axios.get(
-        `https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot?$top=${itemsPerPage}&$skip=${skip}&$format=JSON`,
+        `https://tdx.transportdata.tw/api/basic/v2/Tourism/Restaurant?$top=${itemsPerPage}&$skip=${skip}&$format=JSON`,
         {
           headers: getAuthorizationHeader(),
         }
@@ -72,7 +72,7 @@ export const ScenicSpots = () => {
               className="w-[30px] h-[30px] rotate-90 -mr-3"
             />
           </button>
-          <h1 className="text-2xl font-bold">景點推薦</h1>
+          <h1 className="text-2xl font-bold">美食品嚐</h1>
           <div className="flex gap-2"></div>
         </div>
         {spots.length === 0 ? (
@@ -88,11 +88,12 @@ export const ScenicSpots = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ml-3.5"
           >
             {spots.map((item) => (
-              <Card
-                key={item.ScenicSpotID}
-                scenicSpotName={item.ScenicSpotName}
-                picture={item.Picture?.PictureUrl1}
+              <Foodcard
+                key={item.RestaurantID}
+                restaurantName={item.RestaurantName}
+                picture={item.Picture.PictureUrl1}
                 address={item.Address}
+                opentime={item.OpenTime}
               />
             ))}
           </InfiniteScroll>

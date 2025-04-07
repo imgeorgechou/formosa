@@ -12,7 +12,9 @@ export const List = ({ title }) => {
           更多{title}
         </Link>
       ) : (
-        <p className="text-primary cursor-pointer">更多</p>
+        <Link to="/food" className="text-primary cursor-pointer">
+          更多{title}
+        </Link>
       )}
     </div>
   );
