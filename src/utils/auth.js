@@ -1,10 +1,9 @@
 import jsSHA from "jssha";
 
 export function getAuthorizationHeader() {
-  //  填入自己 ID、KEY 開始
-  let AppID = "411530011-08b1da20-352a-4588";
-  let AppKey = "894677d5-0ba6-4ee1-b72a-7eb306926c74";
-  //  填入自己 ID、KEY 結束
+  let AppID = import.meta.env.VITE_APP_ID;
+  let AppKey = import.meta.env.VITE_APP_KEY;
+  
   let GMTString = new Date().toGMTString();
   let ShaObj = new jsSHA("SHA-1", "TEXT");
   ShaObj.setHMACKey(AppKey, "TEXT");
