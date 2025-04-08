@@ -67,9 +67,9 @@ export const ScenicSpots = () => {
             className="flex items-center justify-center w-[32px] h-[32px] cursor-pointer"
           >
             <img
-              src="/down.svg"
+              src="/back.svg"
               alt="返回"
-              className="w-[30px] h-[30px] rotate-90 -mr-3"
+              className="w-[30px] h-[30px]  -mr-3"
             />
           </button>
           <h1 className="text-2xl font-bold">景點推薦</h1>
@@ -90,6 +90,7 @@ export const ScenicSpots = () => {
             {spots.map((item) => (
               <Card
                 key={item.ScenicSpotID}
+                id={item.ScenicSpotID}
                 scenicSpotName={item.ScenicSpotName}
                 picture={item.Picture?.PictureUrl1}
                 address={item.Address}

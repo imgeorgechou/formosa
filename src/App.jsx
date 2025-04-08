@@ -65,6 +65,7 @@ function App() {
                 .map((item) => (
                   <Card
                     key={item.ScenicSpotID}
+                    id={item.ScenicSpotID}
                     scenicSpotName={item.ScenicSpotName}
                     picture={item.Picture.PictureUrl1}
                     address={item.Address}

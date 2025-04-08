@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { ScenicSpots } from "./pages/ScenicSpots";
 import { Food } from "./pages/Food";
+import { DetailPage } from "./pages/DetailPage";
 
 export const router = createBrowserRouter([
   {
@@ -15,5 +16,9 @@ export const router = createBrowserRouter([
   {
     path: "/food",
     element: <Food />,
+  },
+  {
+    path: "/scenic-spots/:id",
+    element: <DetailPage />,
   },
 ]);
