@@ -1,7 +1,19 @@
 import React from "react";
-export const Foodcard = ({ restaurantName, picture, address, opentime }) => {
+import { useNavigate } from "react-router-dom";
+
+export const Foodcard = ({
+  restaurantID,
+  restaurantName,
+  picture,
+  address,
+  opentime,
+}) => {
+  const navigate = useNavigate();
   return (
-    <div className="hover:scale-105  transition-transform duration-300 my-5 cursor-pointer">
+    <div
+      onClick={() => navigate(`/food/${restaurantID}`)}
+      className="hover:scale-105  transition-transform duration-300 my-5 cursor-pointer"
+    >
       <div className="max-w-sm min-w-[300px] bg-white border border-gray-200 rounded-[16px] shadow-sm ">
         <img
           className="rounded-t-lg"

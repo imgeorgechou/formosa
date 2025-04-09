@@ -90,6 +90,7 @@ export const Food = () => {
             {spots.map((item) => (
               <Foodcard
                 key={item.RestaurantID}
+                restaurantID={item.RestaurantID}
                 restaurantName={item.RestaurantName}
                 picture={item.Picture.PictureUrl1}
                 address={item.Address}

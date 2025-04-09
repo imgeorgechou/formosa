@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { X } from "lucide-react";
 
-export const Searchlocation = () => {
+export const Searchlocation = ({ selectedLocations, setSelectedLocations }) => {
   // 台灣縣市 - 使用英文名稱作為ID
   const locations = [
     { id: "Taipei", name: "台北" },
@@ -31,9 +31,6 @@ export const Searchlocation = () => {
 
   // 控制位置下拉選單是否開啟的狀態
   const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
-  // 儲存選中的位置
-  const [selectedLocations, setSelectedLocations] = useState([]);
-
   const toggleLocationDropdown = () => {
     setIsLocationDropdownOpen(!isLocationDropdownOpen);
   };
